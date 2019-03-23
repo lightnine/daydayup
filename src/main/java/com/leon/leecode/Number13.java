@@ -1,4 +1,9 @@
-package com.leon.algorithm;
+package com.leon.leecode;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * url: https://leetcode.com/problems/roman-to-integer/
@@ -24,6 +29,41 @@ package com.leon.algorithm;
  */
 public class Number13 {
     public int romanToInt(String s) {
-        return 1;
+        Map<Character, Integer> char2int = new HashMap<>(8);
+        char2int.put('I', 1);
+        char2int.put('V', 5);
+        char2int.put('X', 10);
+        char2int.put('L', 50);
+        char2int.put('C', 100);
+        char2int.put('D', 500);
+        char2int.put('M', 1000);
+        if (s.length() == 1) {
+            return char2int.get(s.charAt(0));
+        }
+        // s length > 1
+        char[] chars = s.toCharArray();
+        List<Integer> intList = new ArrayList<>();
+        for (int i = 0; i < chars.length; i++) {
+            intList.add(char2int.get(chars[i]));
+        }
+        int result = 0;
+        int i = intList.size() - 1;
+        for (; i > 0 ; i = i-2) {
+            if (intList.get(i) > intList.get(i - 1)) {
+                result += intList.get(i);
+                result -= intList.get(i - 1);
+            } else {
+                result += intList.get(i);
+                result += intList.get(i - 1);
+            }
+        }
+        if (i == 0) {
+            result += intList.get(0);
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
