@@ -29,38 +29,43 @@ import java.util.Map;
  */
 public class Number13 {
     public int romanToInt(String s) {
-        Map<Character, Integer> char2int = new HashMap<>(8);
-        char2int.put('I', 1);
-        char2int.put('V', 5);
-        char2int.put('X', 10);
-        char2int.put('L', 50);
-        char2int.put('C', 100);
-        char2int.put('D', 500);
-        char2int.put('M', 1000);
+//        Map<Character, Integer> char2int = new HashMap<>(8);
+//        char2int.put('I', 1);
+//        char2int.put('V', 5);
+//        char2int.put('X', 10);
+//        char2int.put('L', 50);
+//        char2int.put('C', 100);
+//        char2int.put('D', 500);
+//        char2int.put('M', 1000);
         if (s.length() == 1) {
-            return char2int.get(s.charAt(0));
+            return getIntByRoman(s.charAt(0));
         }
-        // s length > 1
-        char[] chars = s.toCharArray();
-        List<Integer> intList = new ArrayList<>();
-        for (int i = 0; i < chars.length; i++) {
-            intList.add(char2int.get(chars[i]));
+
+        int[] intArr = new int[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            intArr[i] = getIntByRoman(s.charAt(i));
         }
-        int result = 0;
-        int i = intList.size() - 1;
-        for (; i > 0 ; i = i-2) {
-            if (intList.get(i) > intList.get(i - 1)) {
-                result += intList.get(i);
-                result -= intList.get(i - 1);
+        int result = intArr[intArr.length - 1];
+        for (int i = 0; i < intArr.length - 1; i++) {
+            if (intArr[i] < intArr[i+1]) {
+                result -= intArr[i];
             } else {
-                result += intList.get(i);
-                result += intList.get(i - 1);
+                result += intArr[i];
             }
         }
-        if (i == 0) {
-            result += intList.get(0);
-        }
         return result;
+    }
+    private int getIntByRoman(char roman) {
+        switch (roman) {
+            case 'I' : return 1;
+            case 'V' : return 5;
+            case 'X' : return 10;
+            case 'L' : return 50;
+            case 'C' : return 100;
+            case 'D' : return 500;
+            case 'M' : return 1000;
+            default : return 0;
+        }
     }
 
     public static void main(String[] args) {
