@@ -15,7 +15,8 @@ import java.util.Iterator;
  * Buffer   ：  缓冲区。NIO的数据操作都是在缓冲区中进行。缓冲区实际上是一个数组。而BIO是将数据直接写入或读取到Stream对象。
  * Channel  ：  通道。NIO可以通过Channel进行数据的读，写和同时读写操作。
  * Selector ：  多路复用器。NIO编程的基础。多路复用器提供选择已经就绪状态任务的能力。
- * 客户端和服务器通过Channel连接，而这些Channel都要注册在Selector。Selector通过一个线程不停的轮询这些Channel。找出已经准备就绪的Channel执行IO操作。
+ * 客户端和服务器通过Channel连接，而这些Channel都要注册在Selector。Selector通过一个线程不停的轮询这些Channel。
+ * 找出已经准备就绪的Channel执行IO操作。
  * NIO通过一个线程轮询，实现千万个客户端的请求，这就是非阻塞NIO的特点。
  *
  * @author leon
@@ -92,7 +93,8 @@ public class NIOServer implements Runnable{
             }
         }
     }
-    // 设置阻塞，等待Client请求。在传统IO编程中，用的是ServerSocket和Socket。在NIO中采用的ServerSocketChannel和SocketChannel
+    // 设置阻塞，等待Client请求。在传统IO编程中，用的是ServerSocket和Socket。
+    // 在NIO中采用的ServerSocketChannel和SocketChannel
     private void accept(SelectionKey selectionKey) {
         try {
             // 1.获取通道服务

@@ -25,6 +25,7 @@ public class BIOServer {
             System.out.println("start server...");
             executor = new ThreadPoolExecutor(10, 100, 1000, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(50));
             while (true) {
+                System.out.println("server while, and the server thread:" + Thread.currentThread().getName());
                 socket = server.accept();
                 BIOServerHandler serverHandler = new BIOServerHandler(socket);
                 executor.execute(serverHandler);
