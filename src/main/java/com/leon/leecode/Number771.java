@@ -29,33 +29,17 @@ import java.util.*;
  */
 public class Number771 {
     public int numJewelsInStones(String J, String S) {
-        if (null == J || "".equals(J)) {
-            return 0;
-        }
-        if (null == S || "".equals(S)) {
-            return 0;
-        }
+        int res = 0;
         Set<Character> jewelSet = new HashSet<>();
         for (char c : J.toCharArray()) {
             jewelSet.add(c);
         }
-        Map<Character, Integer> stone2num = new HashMap<>(16);
-        for (char stone : S.toCharArray()) {
-            // java8: stone2num.merge(stone, 1, Integer::sum)
-            if (null == stone2num.get(stone)) {
-                stone2num.put(stone, 1);
-            } else {
-                stone2num.put(stone, stone2num.get(stone) + 1);
+        for (char stone :S.toCharArray()) {
+            if (jewelSet.contains(stone)) {
+                res++;
             }
         }
-        int result = 0;
-        for (Character jewel : jewelSet) {
-            if (null == stone2num.get(jewel)) {
-                continue;
-            }
-            result += stone2num.get(jewel);
-        }
-        return result;
+        return res;
     }
     // 从leetcode 讨论帖上看到的
 //    public int numJewelsInStones(String J, String S) {
