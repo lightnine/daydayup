@@ -27,7 +27,7 @@ import java.util.*;
  * 1. S and J will consist of letters and have length at most 50.
  * 2. The characters in J are distinct.
  */
-public class Number771 {
+public class Problem771 {
     public int numJewelsInStones(String J, String S) {
         int res = 0;
         Set<Character> jewelSet = new HashSet<>();

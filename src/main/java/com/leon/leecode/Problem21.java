@@ -28,7 +28,7 @@ class ListNode {
     }
 }
 
-class Number21 {
+class Problem21 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if(l1 == null) return l2;
         if(l2 == null) return l1;

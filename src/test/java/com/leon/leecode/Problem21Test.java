@@ -3,9 +3,7 @@ package com.leon.leecode;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class Number21Test {
+public class Problem21Test {
 
     @Test
     public void merge124And134() {
@@ -15,8 +13,8 @@ public class Number21Test {
         ListNode l2 = new ListNode(1);
         l2.next = new ListNode(3);
         l2.next.next = new ListNode(4);
-        Number21 number21 = new Number21();
-        ListNode result = number21.mergeTwoLists(l1, l2);
+        Problem21 problem21 = new Problem21();
+        ListNode result = problem21.mergeTwoLists(l1, l2);
         String resultVal = "";
         while (result.next != null) {
             System.out.println(result.val);

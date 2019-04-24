@@ -21,7 +21,7 @@ package com.leon.leecode;
  * C can be placed before D (500) and M (1000) to make 400 and 900.
  * Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.
  */
-public class Number13 {
+public class Problem13 {
     public int romanToInt(String s) {
 //        Map<Character, Integer> char2int = new HashMap<>(8);
 //        char2int.put('I', 1);
