@@ -37,13 +37,12 @@ public class Problem38 {
         }
         String preStr = countAndSay(n - 1);
         StringBuilder result = new StringBuilder();
-        int previous = Character.getNumericValue(preStr.charAt(0));
+        char previous = preStr.charAt(0);
         int num = 1;
         for (int i = 1; i < preStr.length(); i++) {
-            int cur = Character.getNumericValue(preStr.charAt(i));
+            char cur = preStr.charAt(i);
             if (cur == previous) {
                 num++;
-                continue;
             } else {
                 result.append(num).append(previous);
                 previous = cur;
