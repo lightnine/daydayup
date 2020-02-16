@@ -1,4 +1,4 @@
-package com.leon.jdkDemo;
+package com.leon.concurrentDemo;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
