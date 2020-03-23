@@ -27,3 +27,6 @@ hs_err_pid*
 
 # taget
 target/*
+src/main/java/com/leon/concurrent/algorithm/
+src/main/resources/
+src/test/java/com/leon/httpClientDemo/
